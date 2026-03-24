@@ -1,0 +1,27 @@
+# Weather App
+
+Questa applicazione Java consente di ottenere le previsioni meteo giornaliere per una data località.
+
+## Struttura del progetto
+
+- `config` - Configurazioni generali dell’applicazione.
+- `model` - Classi modello per i dati meteo (`CurrentWeather`, `WeatherResponse`).
+- `service` - Client per chiamate API (`WeatherClient`, `GeocodingClient`) e logica di servizio (`WeatherService`).
+- `ui` - Interfaccia utente a console (`ConsoleUI`).
+- `util` - Classi utility (`App.java`).
+- `resources` - File di configurazione (`application.properties`).
+- `test` - Test unitari per i servizi.
+
+## Requisiti
+
+- Java 17+
+- Maven
+- JUnit 5
+
+## Come eseguire
+
+1. Configurare `application.properties` con eventuali chiavi API.
+2. Compilare il progetto:
+
+```bash
+mvn clean install

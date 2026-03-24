@@ -1,0 +1,8 @@
+com\example\weather\App.class
+com\example\weather\model\CurrentWeather.class
+com\example\weather\ui\ConsoleUI.class
+com\example\weather\service\GeocodingClient.class
+com\example\weather\service\WeatherService.class
+com\example\weather\service\WeatherClient.class
+com\example\weather\model\WeatherResponse.class
+com\example\weather\config\Config.class
