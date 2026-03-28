@@ -127,15 +127,15 @@
             cursor: pointer;
 
             background: transparent;
-            border: 1px solid var(--text); /* Bordo dinamico che cambia colore col tema */
+            border: 1px solid var(--text);
             color: var(--text);
             border-radius: 20px;
             padding: 8px 15px;
             font-size: 14px;
             font-weight: bold;
-            display: flex; /* Centra l'icona e il testo */
+            display: flex;
             align-items: center;
-            gap: 5px; /* Spazio tra icona e testo */
+            gap: 5px;
             transition: all 0.3s ease;
         }
 
@@ -164,6 +164,21 @@
         input#city:focus {
             border-color: #3498db;
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .day {
+            animation: fadeInUp 0.5s ease forwards;
+        }
     </style>
 </head>
 <body>
@@ -181,7 +196,6 @@
         <option value="Bologna">
         <option value="Venezia">
     </datalist>
-    <button id="cerca" onclick="getWeather()">🔎 Cerca</button>
 
     <div id="loader" style="display:none;">⏳ Caricamento...</div>
     <div id="result"></div>
@@ -192,14 +206,13 @@
         function toggleTheme(){
             darkMode = !darkMode;
             const body = document.body;
-            const themeToggleBtn = document.getElementById("theme-toggle"); // <--- AGGIUNTO
+            const themeToggleBtn = document.getElementById("theme-toggle");
 
             body.classList.toggle('dark-theme', darkMode);
 
             if (darkMode) {
                 themeToggleBtn.innerHTML = "☀️";
             } else {
-                // Se il tema CHIARO è attivo, mostriamo la LUNA per passare allo SCURO
                 themeToggleBtn.innerHTML = "🌙";
             }
         }
@@ -260,11 +273,34 @@
                 html += `</div></div>`;
                 document.getElementById("result").innerHTML = html;
             } catch(err) {
-                document.getElementById("result").innerHTML = `<div class="card">❌ ${err.message}</div>`;
+                let messaggio = "Oops! Qualcosa è andato storto.";
+                if (err.message.includes("404") || err.message.includes("not found")) {
+                    messaggio = "🔍 Città non trovata. Controlla il nome!";
+                } else if (!navigator.onLine) {
+                    messaggio = "🌐 Sembra che tu sia offline.";
+                }
+                
+                document.getElementById("result").innerHTML = `
+                    <div class="card" style="border-left: 5px solid #e74c3c;">
+                        <h3>${messaggio}</h3>
+                        <p style="font-size: 0.9em; color: #666;">Dettaglio: ${err.message}</p>
+                    </div>`;
             } finally {
                 document.getElementById("loader").style.display = "none";
             }
         }
+
+        document.getElementById("city").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") {
+                const cityValue = e.target.value.trim();
+                
+                if (cityValue !== "") {
+                    getWeather();
+                    e.target.value = "";
+                    e.target.blur();
+                }
+            }
+        });
     </script>
 
 </body>
