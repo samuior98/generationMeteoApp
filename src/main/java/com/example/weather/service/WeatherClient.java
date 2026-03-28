@@ -11,6 +11,9 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class WeatherClient {
 
     private final Config config;
@@ -53,7 +56,8 @@ public class WeatherClient {
         try {
             String url = String.format(
                 "https://api.open-meteo.com/v1/forecast?latitude=%f&longitude=%f" +
-                "&daily=temperature_2m_max,temperature_2m_min,weathercode&timezone=auto",
+                "&daily=temperature_2m_max,temperature_2m_min,weathercode,wind_speed_10m_max,relative_humidity_2m_max" + 
+                "&timezone=auto",
                 latitude, longitude
             );
 

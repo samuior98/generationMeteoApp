@@ -13,6 +13,9 @@ import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.Optional;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class GeocodingClient {
 
     private final Config config;
@@ -56,4 +59,5 @@ public class GeocodingClient {
             return Optional.empty();
         }
     }
+    
 }

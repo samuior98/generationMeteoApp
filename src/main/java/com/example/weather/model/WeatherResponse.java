@@ -34,6 +34,38 @@ public class WeatherResponse {
 
         @JsonProperty("weathercode")
         public List<Integer> weatherCode;
+
+        @JsonProperty("weatherDescription")
+        public List<String> weatherDescription;
+
+        @JsonProperty("weatherIcon")
+        public List<String> weatherIcon;
+
+        @JsonProperty("wind_speed_10m_max")
+        public List<Double> windSpeedMax;
+
+        @JsonProperty("relative_humidity_2m_max")
+        public List<Integer> humidityMax;
+
+        @JsonProperty("weatherDescription")
+        public List<String> getWeatherDescription() {
+            return weatherDescription;
+        }
+
+        @JsonProperty("temperatureMax")
+        public List<Double> getTemperatureMax() {
+            return temperatureMax;
+        }
+
+        @JsonProperty("temperatureMin")
+        public List<Double> getTemperatureMin() {
+            return temperatureMin;
+        }
+
+        @JsonProperty("weatherCode")
+        public List<Integer> getWeatherCode() {
+            return weatherCode;
+        }
     }
 
 }
