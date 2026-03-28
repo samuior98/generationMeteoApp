@@ -50,9 +50,14 @@ src/
 │   │   └── controller/    # Endpoint API REST
 │   └── resources/
 │       └── static/        # Frontend (index.html, CSS, JS)
-
+```
 
 ## 📝 Note di Sviluppo
 L'applicazione implementa una mappatura personalizzata tra i codici numerici di Open-Meteo e le icone grafiche di OpenWeatherMap, garantendo una coerenza visiva tra descrizione testuale e iconografia.
 
 Realizzato con ❤️ come progetto di integrazione Full-Stack Java.
+
+
+## ⚖️ Licenze e Crediti
+I dati meteorologici sono forniti da [Open-Meteo](https://open-meteo.com/) (Licenza [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)).
+Le icone meteo sono fornite da [OpenWeatherMap](https://openweathermap.org/).

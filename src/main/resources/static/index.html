@@ -11,6 +11,11 @@
             color: var(--text);
             padding: 40px;
             transition: background 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            box-sizing: border-box;
         }
 
         :root {
@@ -161,6 +166,13 @@
             transition: border-color 0.3s;
         }
 
+        input#city {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            display: inline-block;
+        }
+
         input#city:focus {
             border-color: #3498db;
         }
@@ -179,12 +191,32 @@
         .day {
             animation: fadeInUp 0.5s ease forwards;
         }
+
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.85em;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        #result {
+            flex: 1; /* Questo "spinge" tutto ciò che sta sotto (il footer) verso il fondo */
+        }
     </style>
 </head>
 <body>
-
-    <h1>Weather App</h1>
     <button id="theme-toggle" onclick="toggleTheme()">🌙</button>
+    <h1>La mia App meteo</h1>
 
     <input id="city" list="cities" placeholder="Inserisci città">
     <datalist id="cities">
@@ -199,6 +231,13 @@
 
     <div id="loader" style="display:none;">⏳ Caricamento...</div>
     <div id="result"></div>
+
+    <footer>
+        Dati di <a href="https://open-meteo.com/" target="_blank">Open-Meteo.com</a> 
+        &bull; Icone di <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a>
+        <br>
+        © 2026 - Realizzato da Samuele I.
+    </footer>
 
     <script>
         let darkMode = false;
