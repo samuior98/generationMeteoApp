@@ -26,7 +26,7 @@ Una moderna Web Application per le previsioni meteo che combina un backend robus
 
 1.  **Clona il repository:**
     ```bash
-    git clone [https://github.com/tuo-username/weather-app.git](https://github.com/tuo-username/weather-app.git)
+    git clone [https://github.com/samuior98/generationMeteoApp.git](https://github.com/samuior98/generationMeteoApp.git)
     ```
 2.  **Compila il progetto:**
     ```bash
@@ -50,3 +50,9 @@ src/
 │   │   └── controller/    # Endpoint API REST
 │   └── resources/
 │       └── static/        # Frontend (index.html, CSS, JS)
+
+
+## 📝 Note di Sviluppo
+L'applicazione implementa una mappatura personalizzata tra i codici numerici di Open-Meteo e le icone grafiche di OpenWeatherMap, garantendo una coerenza visiva tra descrizione testuale e iconografia.
+
+Realizzato con ❤️ come progetto di integrazione Full-Stack Java.
